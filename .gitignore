@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build artifacts (when conformance test suite + docs build land)
+dist/
+build/
+node_modules/
+.cache/
+
+# Local working files
+*.local.md
+.aria-cache/
+
+# OS
+Thumbs.db
+ehthumbs.db
