@@ -199,41 +199,41 @@ git commit -m "chore(tests): bootstrap conformance test suite workspace"
 
 - [ ] **Step 1: Enumerate the 31 archetypes per spec §5**
 
-Read `v1.0-draft.md` §5 to confirm the complete archetype list. Expected list (from spec memory + research):
+The canonical list re-derived verbatim from `v1.0-draft.md` §5 lines 120-124 (2026-05-22 per prospect — earlier "from spec memory + research" enumeration was FALSIFIED with ~21 plan-only names that don't exist in the spec):
 
 1. causal *(Plan 01 already shipped)*
 2. propositional
 3. procedural
-4. taxonomic
-5. relational
-6. spatial
-7. temporal
-8. quantitative
-9. comparative
-10. evaluative
-11. conditional
-12. exemplar
-13. counterexample
-14. analogical
-15. epistemic_state
-16. evidential
-17. reasoning
-18. argumentative
-19. dialectical
-20. narrative
-21. observational
-22. experiential
-23. testimonial
-24. computed
-25. inferred
-26. structural_meta
-27. a_priori
-28. deductive
-29. abductive
-30. probabilistic
-31. statistical
+4. acquaintance
+5. a_priori
+6. a_posteriori
+7. semantic
+8. episodic
+9. implicit
+10. schematic
+11. script
+12. factual
+13. conceptual
+14. metacognitive
+15. conditional
+16. explicit
+17. tacit
+18. relational
+19. deductive
+20. inductive
+21. abductive
+22. analogical
+23. heuristic
+24. structural_meta
+25. normative
+26. causal_structural
+27. intuitive
+28. embodied
+29. distributed
+30. strategic
+31. generative
 
-(Verify against spec §5; if list differs, adjust this task's schemas accordingly.)
+> **Re-derivation provenance:** spec source-of-truth is `aria-knowledge-spec/v1.0-draft.md:120-124`. If spec §5 changes between this plan's draft date (2026-05-21) and execution date, re-read that span and update this list FIRST before authoring schemas — the schemas + SKOS vocab + fixtures all derive from this enumeration.
 
 - [ ] **Step 2: Author one anchor-schema per archetype**
 
@@ -528,7 +528,7 @@ git commit -m "test(static): provenance-chain round-trip test"
 ```typescript
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
-import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamable.js";
+import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 
 export async function connectCore(): Promise<Client> {
   const url = process.env.ARIA_CORE_URL;

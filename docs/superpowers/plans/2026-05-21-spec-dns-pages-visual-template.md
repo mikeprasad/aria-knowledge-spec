@@ -19,7 +19,7 @@
 **Pre-execution decisions (revise if needed before Task 0):**
 
 - **Visual stack:** plain HTML + custom CSS. Smallest dependency surface; W3C-spec-page aesthetic reference. **Revisit** if Mike prefers claude.ai/design React handoff (would expand Tasks 4 + 5 to handle a Babel-compiled React shell) OR Designframe utility classes (would couple the spec site to DF version + reduce visual distinctness from future Synapse product chrome).
-- **Markdown renderer:** `marked` ≥12. Stable, widely deployed, supports GFM + heading-id auto-generation. Alternatives (markdown-it, remark) ruled out as heavier without meaningful benefit for a flat-structure spec document.
+- **Markdown renderer:** `marked` ≥14 (bumped from ≥12 per 2026-05-22 prospect — `marked-gfm-heading-id@^4.x` peerDep requires `marked >=13`; v4.1.4 widened to `>=13 <19`). Stable, widely deployed, supports GFM + heading-id auto-generation. Alternatives (markdown-it, remark) ruled out as heavier without meaningful benefit for a flat-structure spec document.
 - **CSS approach:** single hand-authored `styles.css` (~150-200 LOC). Tailwind / utility frameworks ruled out as overkill for a 3-page site.
 
 ---
@@ -90,8 +90,8 @@ site/node_modules/
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "marked": "^12.0.0",
-    "marked-gfm-heading-id": "^4.0.0"
+    "marked": "^14.0.0",
+    "marked-gfm-heading-id": "^4.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",
