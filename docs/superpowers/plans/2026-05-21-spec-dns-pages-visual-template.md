@@ -1064,7 +1064,16 @@ git commit -m "docs: link live spec.ariaknowledge.ai from README"
 git push origin main
 ```
 
-The other 3 files (`aria/CLAUDE.md`, the memory file, the sequencing doc in `aria/docs/`) live outside any git repo — verification via grep is the persistence signal per the Task 7a convention.
+2 of the other 3 files (`aria/CLAUDE.md` + the sequencing doc in `aria/docs/`) are now tracked in the **aria workspace repo** (`mikeprasad/aria`, private, created 2026-05-22 per Plan 00 — this plan was drafted 2026-05-21 before that repo existed, hence the stale assumption). Commit those edits to the aria workspace repo:
+
+```bash
+cd /Users/mikeprasad/Projects/aria
+git add CLAUDE.md docs/superpowers/plans/2026-05-21-phase-1-sequencing.md
+git commit -m "docs: sync sibling surfaces for Plan 02 go-live (spec.ariaknowledge.ai)"
+git push origin main
+```
+
+The 3rd file — the memory file at `~/.claude/projects/.../memory/project_aria_knowledge_spec.md` — lives outside any git repo by design (Claude Code's auto-memory is local-by-design); verification via grep is the persistence signal per the Task 7a convention.
 
 ---
 
