@@ -1,6 +1,7 @@
 # ARIA Knowledge Format Specification
 
-> **v0.1 RFC open.** This spec is in its open-comment window. See [RFC.md](RFC.md) for how to comment, [CONTRIBUTING.md](CONTRIBUTING.md) for scope rules, and the [7 open questions tracked as Issues](https://github.com/mikeprasad/aria-knowledge-spec/issues?q=label%3Arfc-open-question). Ratification target: aria-synapse Phase 2.
+<!-- REACTIVATE AT ANNOUNCEMENT: restore prior banner: "> **v0.1 RFC open.** This spec is in its open-comment window. See [RFC.md](RFC.md) for how to comment, [CONTRIBUTING.md](CONTRIBUTING.md) for scope rules, and the [7 open questions tracked as Issues](https://github.com/mikeprasad/aria-knowledge-spec/issues?q=label%3Arfc-open-question). Ratification target: aria-synapse Phase 2." Defer-source: Plan 01a Task 8 — DEFERRED state. -->
+> **v0.1 RFC drafted (pre-announcement).** See [RFC.md](RFC.md) for status and [CONTRIBUTING.md](CONTRIBUTING.md) for scope rules. Public comment process opens at ARIA family announcement. Ratification target: aria-synapse Phase 2.
 
 The **ARIA Knowledge format** is an open, MCP-native specification for typed, validated, structured knowledge that AI agents and humans can both read, write, and reason over.
 

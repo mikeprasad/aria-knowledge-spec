@@ -2,11 +2,15 @@
 
 **Status:** Draft RFC. The spec at [`v1.0-draft.md`](v1.0-draft.md) is currently versioned `0.1.0-rfc`. Ratification target: Phase 2 of the [aria-synapse build sequence](https://github.com/mikeprasad/aria-synapse/blob/main/docs/superpowers/specs/2026-05-19-aria-synapse-design.md#7-v1-scope-sequencing-deferrals).
 
-## How to comment
+<!-- REACTIVATE AT ANNOUNCEMENT: restore the original "How to comment" section (3 bullets: RFC comment Issue template + direct PR for editorial fixes + Conformance bug Issue template). Defer-source: Plan 01a Task 8 — DEFERRED state. -->
 
-- **Substantive issues** (vocabulary, anchor sets, normative changes): open a GitHub Issue using the **RFC comment** template. Include the spec section reference (e.g. `§8.3`, `Appendix D.2`).
-- **Typos / clarifications / small editorial fixes**: open a Pull Request directly.
-- **Conformance bugs** in the validation harness or schemas: use the **Conformance bug** template.
+## Pre-announcement state
+
+This RFC is in **pre-announcement state** — the public comment process is not yet open. The 7 substantive open questions are listed below for reference; tracking Issues will be created at ARIA family announcement.
+
+For pre-announcement private feedback, contact the editor (see "Editor" section below).
+
+Issue templates (`RFC comment` + `Conformance bug`) are pre-staged in `.github/ISSUE_TEMPLATE/` and will become discoverable when the comment process opens.
 
 ## What's open during RFC
 
@@ -18,7 +22,8 @@
 - Reference-type subtypes
 - Scenario `applies_when` typing
 
-All 7 are tracked as Issues with the `rfc-open-question` label.
+<!-- REACTIVATE AT ANNOUNCEMENT: restore original line "All 7 are tracked as Issues with the `rfc-open-question` label." Defer-source: Plan 01a Task 8 — DEFERRED state. -->
+Tracking Issues will be created at ARIA family announcement (see [Plan 01a Task 8](docs/superpowers/plans/2026-05-21-format-spec-v0-1-rfc-opening.md)).
 
 ## What's locked
 

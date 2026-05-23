@@ -1138,6 +1138,16 @@ git commit -m "feat(spec): JSON-LD compatibility + PROV-O/MPAI/SKOS alignment ap
 
 ## Task 8: Create 7 open-question Issues + verify CI green
 
+> **STATUS — DEFERRED (2026-05-23):** Held until ARIA family announcement. Reason: pre-announcement, the public-facing surfaces shouldn't advertise an active comment process. The 7 questions live canonically in `v1.0-draft.md` Appendix D (lines 1022-1032) and editor-side tracking lives in `IDEAS-BACKLOG.md` (2026-05-23 entry).
+>
+> **Re-trigger condition:** ARIA family announcement ships.
+>
+> **Reactivation checklist when re-triggered (grep `REACTIVATE AT ANNOUNCEMENT` to find all 3 surfaces):**
+> 1. `RFC.md` — restore "How to comment" section (3 bullets per HTML comment marker)
+> 2. `RFC.md` — restore "All 7 are tracked as Issues with the `rfc-open-question` label." line
+> 3. `README.md` — restore the original "v0.1 RFC open" banner with Issues URL
+> 4. Then execute Steps 1-4 of this Task as originally specified.
+
 **Files:** none modified (GitHub-side work)
 
 - [ ] **Step 1: Create the 7 Issues**
