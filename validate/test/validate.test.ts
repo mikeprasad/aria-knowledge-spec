@@ -13,4 +13,11 @@ describe("validateCore", () => {
     expect(result.valid).toBe(true);
     expect(result.errors).toEqual([]);
   });
+
+  it("rejects a manifest missing required fields", async () => {
+    const result = await validateCore(fixture("invalid-bad-manifest"));
+    expect(result.valid).toBe(false);
+    expect(result.errors.length).toBeGreaterThan(0);
+    expect(result.errors.some((e) => e.message.includes("license"))).toBe(true);
+  });
 });
