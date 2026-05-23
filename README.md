@@ -1,5 +1,7 @@
 # ARIA Knowledge Format Specification
 
+> **v0.1 RFC open.** This spec is in its open-comment window. See [RFC.md](RFC.md) for how to comment, [CONTRIBUTING.md](CONTRIBUTING.md) for scope rules, and the [7 open questions tracked as Issues](https://github.com/mikeprasad/aria-knowledge-spec/issues?q=label%3Arfc-open-question). Ratification target: aria-synapse Phase 2.
+
 The **ARIA Knowledge format** is an open, MCP-native specification for typed, validated, structured knowledge that AI agents and humans can both read, write, and reason over.
 
 A **Core** is a structured knowledge repository conforming to this format. Cores can be self-hosted on a filesystem, SQLite, or Postgres backend; they can be published to registries; they can be composed via portable Shards and live Exocore subscriptions.
