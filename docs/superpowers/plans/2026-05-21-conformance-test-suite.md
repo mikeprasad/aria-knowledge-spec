@@ -642,6 +642,12 @@ git commit -m "test(live): MCP client + 14 core.* tool contract tests"
 **Files:**
 - Create: `tests/runner/conformance-runner.ts`, `tests/runner/results-format.ts`
 
+> **Q8 resolution — 2026-05-23 (Mike, Option B):** Plan 06 v0.1 ships **WITHOUT Synapse Inclusion probes**. The `synapse_inclusion_requirements` field is **omitted entirely from v0.1 conformance output** (not stubbed as `null` — that would be the anti-placeholder pattern Mike's rejected via Q14/Q15/Q18). Inclusion testing ships in **Plan 06b followup** once aria-synapse §5 authors the formal probe contract (7 Hygiene + 3 Capabilities pass/fail criteria, edge cases, exact PII-scan definition, etc.). Until then, the conformance suite reports `core-base` / `core-extended` / `core-experimental` per spec §3 only.
+>
+> **Plan 06b scope sketch (when aria-synapse §5 lands):** implement 7 Hygiene probes + 3 Capabilities probes per the §5 probe contract; emit pass/fail per probe in conformance output; reuse Plan 06 runner harness. ~2-3 days authoring.
+>
+> **Execution-time cleanup needed:** the `synapse_inclusion_requirements: {...}` field at line ~662 in the Step 1 code block + `computeSynapseRequirements()` call at line ~694 should both be REMOVED from v0.1's `ConformanceResults` interface. Defer to execution.
+
 - [ ] **Step 1: Author the conformance-results format**
 
 ```typescript
