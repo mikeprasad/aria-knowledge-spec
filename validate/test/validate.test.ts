@@ -20,4 +20,11 @@ describe("validateCore", () => {
     expect(result.errors.length).toBeGreaterThan(0);
     expect(result.errors.some((e) => e.message.includes("license"))).toBe(true);
   });
+
+  it("validates item base fields", async () => {
+    const result = await validateCore(fixture("valid-minimal-core"));
+    expect(result.valid).toBe(true);
+    expect(result.itemsValidated).toBe(1);
+    expect(result.errors).toEqual([]);
+  });
 });

@@ -1,0 +1,26 @@
+{
+  "id": "0001-example-cause",
+  "type": "lesson",
+  "archetype": ["causal"],
+  "content": "Observed that staging deploys without canary instrumentation surface regressions ~6 hours after rollout when production traffic patterns diverge from staging seed data.",
+  "source": { "kind": "internal", "ref": "incident-2026-04" },
+  "source_type": "observed",
+  "timestamp_created": "2026-05-21T00:00:00Z",
+  "timestamp_valid_from": "2026-04-15T00:00:00Z",
+  "timestamp_valid_until": null,
+  "confidence": 0.75,
+  "scope": "team",
+  "language": "en",
+  "version": "1.0.0",
+  "lineage": [],
+  "status": "promoted",
+  "tags": [],
+  "extensions": {
+    "cause": "Staging seed data missing high-cardinality production query patterns",
+    "effect": "Regression escapes pre-prod and surfaces on production traffic spike",
+    "mechanism": "Code paths exercised only by production query distribution remain untested"
+  },
+  "provenance": [],
+  "validations": [],
+  "pii_check": "clean"
+}

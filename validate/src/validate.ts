@@ -1,5 +1,5 @@
-import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { readFile, readdir } from "node:fs/promises";
+import { resolve, join } from "node:path";
 import Ajv from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 
@@ -11,30 +11,45 @@ export interface ValidationError {
 export interface ValidationResult {
   valid: boolean;
   errors: ValidationError[];
+  itemsValidated: number;
 }
 
 export async function validateCore(coreDir: string): Promise<ValidationResult> {
   const ajv = new Ajv({ allErrors: true, strict: false });
   addFormats(ajv);
 
-  const manifestSchemaPath = resolve(coreDir, "..", "..", "..", "schemas", "core-manifest.schema.json");
-  const manifestSchema = JSON.parse(await readFile(manifestSchemaPath, "utf8"));
+  const schemasDir = resolve(coreDir, "..", "..", "..", "schemas");
+  const manifestSchema = JSON.parse(await readFile(join(schemasDir, "core-manifest.schema.json"), "utf8"));
+  const itemSchema = JSON.parse(await readFile(join(schemasDir, "item-base.schema.json"), "utf8"));
 
-  const manifestPath = resolve(coreDir, "core.json");
-  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  const manifest = JSON.parse(await readFile(join(coreDir, "core.json"), "utf8"));
+  const validateManifest = ajv.compile(manifestSchema);
+  const validateItem = ajv.compile(itemSchema);
 
-  const validate = ajv.compile(manifestSchema);
-  const ok = validate(manifest);
+  const errors: ValidationError[] = [];
 
-  if (!ok) {
-    return {
-      valid: false,
-      errors: (validate.errors ?? []).map((e) => ({
-        path: e.instancePath || "/",
-        message: e.message ?? "validation failed"
-      }))
-    };
+  if (!validateManifest(manifest)) {
+    for (const e of validateManifest.errors ?? []) {
+      errors.push({ path: `core.json${e.instancePath}`, message: e.message ?? "invalid" });
+    }
   }
 
-  return { valid: true, errors: [] };
+  let itemsValidated = 0;
+  const itemsDir = join(coreDir, "items");
+  try {
+    const itemFiles = await readdir(itemsDir);
+    for (const file of itemFiles.filter((f) => f.endsWith(".json"))) {
+      const item = JSON.parse(await readFile(join(itemsDir, file), "utf8"));
+      itemsValidated++;
+      if (!validateItem(item)) {
+        for (const e of validateItem.errors ?? []) {
+          errors.push({ path: `items/${file}${e.instancePath}`, message: e.message ?? "invalid" });
+        }
+      }
+    }
+  } catch (err: unknown) {
+    if ((err as NodeJS.ErrnoException).code !== "ENOENT") throw err;
+  }
+
+  return { valid: errors.length === 0, errors, itemsValidated };
 }

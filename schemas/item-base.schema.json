@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ariaknowledge.ai/schemas/v0.1/item-base.schema.json",
+  "title": "Item base fields",
+  "description": "Universal base fields every Core item must have.",
+  "type": "object",
+  "required": ["id", "type", "archetype", "content", "source", "source_type", "timestamp_created", "confidence", "scope", "language", "version", "lineage", "status", "tags", "extensions", "provenance", "validations", "pii_check"],
+  "additionalProperties": true,
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "type": {
+      "type": "string",
+      "enum": ["decision", "approach", "lesson", "risk", "hypothesis", "fact", "definition", "scenario", "reference"]
+    },
+    "archetype": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "content": { "type": "string", "minLength": 1 },
+    "source": { "type": "object" },
+    "source_type": {
+      "type": "string",
+      "enum": ["observed", "learned", "told", "inferred", "computed", "experienced"]
+    },
+    "timestamp_created": { "type": "string", "format": "date-time" },
+    "timestamp_valid_from": { "type": ["string", "null"], "format": "date-time" },
+    "timestamp_valid_until": { "type": ["string", "null"], "format": "date-time" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "scope": { "type": "string", "enum": ["self", "team", "org", "public"] },
+    "language": { "type": "string", "minLength": 2 },
+    "version": { "type": "string" },
+    "lineage": { "type": "array" },
+    "status": { "type": "string", "enum": ["draft", "promoted", "archived", "deprecated"] },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "extensions": { "type": "object" },
+    "provenance": { "type": "array" },
+    "validations": { "type": "array" },
+    "pii_check": { "type": "string", "enum": ["clean", "flagged", "skipped"] }
+  }
+}
