@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.ariaknowledge.ai/schemas/v0.1/archetypes/causal.schema.json",
+  "title": "Causal archetype anchors",
+  "description": "When an item declares the 'causal' archetype, at least one of cause/effect/mechanism must be a non-empty string in extensions.",
+  "type": "object",
+  "properties": {
+    "extensions": {
+      "type": "object",
+      "anyOf": [
+        { "required": ["cause"], "properties": { "cause": { "type": "string", "minLength": 1 } } },
+        { "required": ["effect"], "properties": { "effect": { "type": "string", "minLength": 1 } } },
+        { "required": ["mechanism"], "properties": { "mechanism": { "type": "string", "minLength": 1 } } }
+      ]
+    }
+  },
+  "required": ["extensions"]
+}

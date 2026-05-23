@@ -1,0 +1,22 @@
+{
+  "id": "0001-no-anchor",
+  "type": "lesson",
+  "archetype": ["causal"],
+  "content": "Item declares causal archetype but populates no anchor fields. Should be rejected by the anchor gate.",
+  "source": { "kind": "internal", "ref": "fixture" },
+  "source_type": "observed",
+  "timestamp_created": "2026-05-21T00:00:00Z",
+  "timestamp_valid_from": null,
+  "timestamp_valid_until": null,
+  "confidence": 0.5,
+  "scope": "team",
+  "language": "en",
+  "version": "1.0.0",
+  "lineage": [],
+  "status": "promoted",
+  "tags": [],
+  "extensions": {},
+  "provenance": [],
+  "validations": [],
+  "pii_check": "clean"
+}

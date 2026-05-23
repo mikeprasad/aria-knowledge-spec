@@ -27,4 +27,10 @@ describe("validateCore", () => {
     expect(result.itemsValidated).toBe(1);
     expect(result.errors).toEqual([]);
   });
+
+  it("rejects an item declaring causal archetype with no anchor fields", async () => {
+    const result = await validateCore(fixture("invalid-missing-anchor"));
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((e) => e.message.includes("anchor"))).toBe(true);
+  });
 });

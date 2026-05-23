@@ -2,6 +2,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import Ajv from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
+import { checkAnchors } from "./anchor-gate.js";
 
 export interface ValidationError {
   path: string;
@@ -45,6 +46,13 @@ export async function validateCore(coreDir: string): Promise<ValidationResult> {
         for (const e of validateItem.errors ?? []) {
           errors.push({ path: `items/${file}${e.instancePath}`, message: e.message ?? "invalid" });
         }
+      }
+      const anchorFailures = await checkAnchors(schemasDir, ajv, item);
+      for (const f of anchorFailures) {
+        errors.push({
+          path: `items/${file}/extensions`,
+          message: f.message
+        });
       }
     }
   } catch (err: unknown) {
