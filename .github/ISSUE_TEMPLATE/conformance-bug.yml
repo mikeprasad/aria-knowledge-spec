@@ -1,0 +1,25 @@
+name: Conformance bug
+description: A schema or harness fails to validate something the spec says it should (or vice versa)
+title: "[Conformance] "
+labels: ["conformance-bug"]
+body:
+  - type: input
+    id: schema
+    attributes:
+      label: Schema or harness file
+      placeholder: schemas/core-manifest.schema.json
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Minimal fixture or steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: aria-core implementation issues
+    url: https://github.com/mikeprasad/aria-core/issues
+    about: For bugs in the reference Core implementation, not the format spec.
+  - name: aria-synapse platform issues
+    url: https://github.com/mikeprasad/aria-synapse/issues
+    about: For bugs in the platform that publishes Cores.

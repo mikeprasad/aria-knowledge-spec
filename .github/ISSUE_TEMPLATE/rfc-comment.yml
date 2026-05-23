@@ -1,0 +1,25 @@
+name: RFC comment
+description: Substantive comment on the v0.1 RFC (vocabulary, anchors, normative changes)
+title: "[RFC] "
+labels: ["rfc-comment"]
+body:
+  - type: input
+    id: section
+    attributes:
+      label: Spec section
+      description: e.g. §8.3 or Appendix D.2
+      placeholder: §X.Y
+    validations:
+      required: true
+  - type: textarea
+    id: comment
+    attributes:
+      label: Comment
+      description: What change do you propose, and why?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches did you evaluate? Why is yours better?
