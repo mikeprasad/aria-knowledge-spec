@@ -1,0 +1,13 @@
+{
+  "core_id": "example-min",
+  "name": "Minimal example Core",
+  "spec_version": "0.1.0-rfc",
+  "conformance_level": "core-base",
+  "license": "CC-BY-4.0",
+  "publisher": {
+    "name": "Example Publisher",
+    "type": "individual"
+  },
+  "created": "2026-05-21T00:00:00Z",
+  "updated": "2026-05-21T00:00:00Z"
+}
