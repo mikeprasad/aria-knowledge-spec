@@ -10,9 +10,9 @@ This is the canonical specification. Multiple implementations are welcome and en
 
 ## Current version
 
-- **v1.0 (draft)** — see [`v1.0-draft.md`](./v1.0-draft.md)
-- Status: Draft pending RFC consolidation
-- To be ratified after community feedback window
+- **v0.1.0-rfc** (on-disk) — see [`v1.0-draft.md`](./v1.0-draft.md); v1.0 remains the target version label after RFC ratification
+- Status: v0.1 RFC — open for comment via [GitHub Issues](https://github.com/mikeprasad/aria-knowledge-spec/issues?q=label%3Arfc-open-question)
+- Ratification target: aria-synapse Phase 2
 
 ## License
 
