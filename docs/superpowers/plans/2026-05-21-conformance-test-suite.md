@@ -443,9 +443,17 @@ git commit -m "feat(vocabulary): SKOS concept-schemes for 31 archetypes + 9 type
 
 **Files:**
 - Create: `tests/static/provenance-chain.test.ts`
+- Create: `tests/live/provenance-roundtrip.test.ts` (added 2026-05-23 per Q7 = Option B)
 - Create: `tests/fixtures/shards/example.shard`
 
 **Why this matters:** Format §13 specifies that Shard export → import → re-export must preserve provenance chains exactly. Without a round-trip test, "provenance preserved" is a claim implementers can break silently.
+
+> **Q7 resolution — 2026-05-23 (Mike, Option B via "move all up"):** Plan 06 Task 3 ships **runtime CLI round-trip test in v0.1** (was previously trending toward Option C: static-only + deferred Plan 06b). Reason: Mike's "move all up" decision promotes `core.shard.export` + `core.shard.import` from stub to fully implemented in aria-core v0.1; the runtime round-trip is now feasible without v0.2 dependency. Test design:
+>
+> 1. **Static lineage-resolve test** (`tests/static/provenance-chain.test.ts`) — validates `provenance.json` schema correctness + `chain[]` structural validity against fixture Shards. Satisfies §14's "provenance MUST survive indefinitely" at the FORMAT level.
+> 2. **Runtime CLI round-trip test** (`tests/live/provenance-roundtrip.test.ts`) — uses real `aria-core shard.export` → `aria-core shard.import` on a fixture Core; asserts provenance + chain survive the round-trip. Satisfies §13.1's "Items arrive with full provenance preserved" at the IMPLEMENTATION level.
+>
+> **Dependency:** aria-core v0.1 (with shard.export + shard.import fully implemented per Mike's move-all-up). No Plan 06b followup needed.
 
 - [ ] **Step 1: Author a minimal example Shard fixture**
 
